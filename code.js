@@ -1,5 +1,5 @@
 onEvent("solveButton", "click", function() {
-  get_24([getText("Num1"), getText("Num2"), getText("Num3"), getText("Num4")]);
+  get_24([parseFloat(getText("Num1")), parseFloat(getText("Num2")), parseFloat(getText("Num3")), parseFloat(getText("Num4"))]);
 });
 
 var opsSymbol = ["+", "-","/", "*"];
@@ -96,17 +96,17 @@ function get_24(num) {
 
 function add(num1, num2){ //adds
   console.log("Checking | " + num1 + " + " + num2+ "=" + Math.round(num1 +num2) + " ADD| Try #" + tries);
-  return Math.round(num1) + Math.round(num2);
+  return num1 + num2
 }
 function div(num1, num2){ // divides
   console.log("Checking | " + num1 + " / " + num2+ "=" + Math.round(num1) / Math.round(num2) + " DIV | Try #" + tries);
-  return Math.round((num1 / num2)*100)/100;
+  return num1 / num2;
 }
 function mul(num1, num2){ // multiply
   console.log("Checking | " + num1 + " * " + num2+ "=" + Math.round(num1) * Math.round(num2) + " MUL | Try #" + tries);
-  return Math.round(num1 * num2);
+  return num1 * num2;
 }
 function sub(num1, num2){ // subtracts
   console.log("Checking | " + num1 + " - " + num2 + " SUB | Try #" + tries);
-  return Math.round(num1) - Math.round(num2);
+  return num1 - num2;
 }
