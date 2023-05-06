@@ -3,17 +3,10 @@ onEvent("solveButton", "click", function() {
 });
 
 var opsSymbol = ["+", "-","/", "*"];
-var outcome =0;
-var tries =0;
-
-
-
-
-
-
 var ops = [add,sub,div,mul];
 
-
+var outcome =0;
+var tries =0;
 
 function get_24(num) {
   tries =0;
@@ -37,6 +30,7 @@ function get_24(num) {
       while(outcome != 24 && k < ops.length){
         l=0;
         flipped = false;
+        reversed = false;
         while(outcome != 24 && l < num.length){
           num.unshift(num.pop());
           console.log("---------NEW-TRY----------");
@@ -54,19 +48,19 @@ function get_24(num) {
 
           tries++;
           l++;
-          if(l == num.length && outcome != 24){
+          if(l == num.length && outcome != 24){ // I put my thing down, flip it and reverse it
             if(!reversed){
               reversed = true;
               l = 0;
             }else if(!flipped){
               flipped = true;
-              var tempNumber = num[1];
-              num[1] = num[2];
-              num[2] = tempNumber;
+              var tempNumber = num[0];
+              num[0] = num[1];
+              num[1] = tempNumber;
+              
               l=0;
               reversed = false;
             }
-
           }
         }
         k++;
